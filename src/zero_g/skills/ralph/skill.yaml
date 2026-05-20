@@ -1,0 +1,15 @@
+name: ralph
+description: Self-referential loop that repeats executor-architect review until completion.
+triggers:
+  - ralph
+  - don't stop
+  - must complete
+agent_profile: executor
+api_layer: L2
+steps:
+  - "Executor implements code changes"
+  - "Architect reviews implementation"
+  - "If REVISE, Executor fixes based on feedback"
+  - "Loop until APPROVE or max_iterations reached"
+max_iterations: 10
+extra_tools: []

@@ -1,0 +1,13 @@
+name: team
+description: Coordinate multiple L1 Agent workers in parallel with file partition isolation.
+triggers:
+  - team
+agent_profile: planner
+api_layer: L1
+steps:
+  - "Planner decomposes task into independent subtasks"
+  - "Workers execute in parallel via asyncio.gather"
+  - "Coordinator enforces file partitions"
+  - "Results aggregated"
+max_iterations: 1
+extra_tools: []

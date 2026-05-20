@@ -1,0 +1,17 @@
+name: autopilot
+description: Autonomous full pipeline from idea to working code. Plans, executes, verifies, and corrects until completion.
+triggers:
+  - autopilot
+  - build me
+  - i want a
+agent_profile: architect
+api_layer: L2
+steps:
+  - "Architect analyzes requirements and creates implementation_plan.md"
+  - "Present plan to user for approval (gradual confirmation)"
+  - "Executor implements code changes following approved plan"
+  - "Tester writes tests and runs verification"
+  - "If tests fail, correction loop (max 3 attempts)"
+  - "Generate walkthrough report on success"
+max_iterations: 3
+extra_tools: []
