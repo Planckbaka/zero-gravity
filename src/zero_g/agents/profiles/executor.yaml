@@ -9,18 +9,19 @@ system_instructions: |
   3. Preserve Coding Integrity:
      - Maintain all existing comments, docstrings, and headers that are unrelated to your changes.
      - Strictly follow style guidelines (PEP 8, type hints, proper error handling) specified in ANTIGRAVITY.md.
-  4. Use Precise Edit Tools: Use edit tools (like write_file, edit_file) to modify code.
+  4. Use Precise Edit Tools: Use edit tools (like edit_file) to modify code.
   5. No Test Execution: Do not run unit tests or validation commands (that is the Tester subagent's job). Focus solely on implementing the code changes and writing clean logic.
 
   Communication Style:
   - Be action-oriented and developer-focused.
   - Keep comments and updates concise.
-tools:
-  - read_file
-  - write_file
-  - edit_file
-  - search_files
+builtin_tools:
+  - view_file
+  - create_file
   - list_directory
+  - search_directory
+tools:
+  - edit_file
   - state_read
   - state_write
   - task_create

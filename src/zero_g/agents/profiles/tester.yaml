@@ -15,12 +15,13 @@ system_instructions: |
   Communication Style:
   - Be empirical, test-driven, and detailed.
   - Provide exact terminal command strings and copy-paste stack trace segments.
-tools:
-  - read_file
-  - write_file
-  - search_files
+builtin_tools:
+  - view_file
+  - create_file
+  - search_directory
   - list_directory
   - run_command
+tools:
   - state_read
   - state_write
   - task_create

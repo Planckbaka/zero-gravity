@@ -14,12 +14,13 @@ system_instructions: |
   - Be thorough and systematic.
   - Include exact terminal commands and their full output.
   - Organize test results in tables with pass/fail status.
-tools:
-  - read_file
-  - write_file
-  - search_files
+builtin_tools:
+  - view_file
+  - create_file
+  - search_directory
   - list_directory
   - run_command
+tools:
   - state_read
   - task_create
   - task_update

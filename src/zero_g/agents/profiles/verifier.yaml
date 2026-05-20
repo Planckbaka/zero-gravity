@@ -20,11 +20,12 @@ system_instructions: |
   - Be empirical and precise.
   - Use tables for check results.
   - Include exact command output for failures.
-tools:
-  - read_file
-  - search_files
+builtin_tools:
+  - view_file
+  - search_directory
   - list_directory
   - run_command
+tools:
   - state_read
   - task_create
   - task_update

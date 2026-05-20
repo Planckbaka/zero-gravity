@@ -13,6 +13,7 @@ from zero_g.core.state_manager import StateManager
 from zero_g.core.error_handling import skill_error_handler
 from zero_g.skills.team.coordinator import TeamCoordinator
 from zero_g.tools import task_tools
+from google.antigravity import Agent
 
 
 class TeamSkill(BaseSkill):
@@ -31,8 +32,8 @@ class TeamSkill(BaseSkill):
         })
 
         # Phase 1: Decompose task using Planner
-        planner = create_agent("planner")
-        async with planner:
+        planner_config = create_agent("planner")
+        async with Agent(planner_config) as planner:
             decompose_response = await planner.chat(
                 f"Decompose this task into {worker_count} independent subtasks "
                 f"with NON-OVERLAPPING file scopes:\n{task}\n\n"
@@ -74,9 +75,9 @@ class TeamSkill(BaseSkill):
 
         # Phase 3: Parallel execution with L1 Agents
         async def run_worker(worker_id: int, subtask: dict) -> str:
-            executor = create_agent("executor")
+            executor_config = create_agent("executor")
             try:
-                async with executor:
+                async with Agent(executor_config) as executor:
                     response = await executor.chat(
                         f"You are worker-{worker_id} in team '{team_name}'.\n"
                         f"Subtask: {subtask['subject']}\n{subtask.get('description', '')}\n"

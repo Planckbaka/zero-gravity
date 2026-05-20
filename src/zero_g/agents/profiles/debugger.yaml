@@ -15,13 +15,14 @@ system_instructions: |
   - Be analytical and evidence-based.
   - Include stack traces, file paths, and line numbers.
   - State the root cause explicitly before proposing a fix.
-tools:
-  - read_file
-  - write_file
-  - edit_file
-  - search_files
+builtin_tools:
+  - view_file
+  - create_file
   - list_directory
+  - search_directory
   - run_command
+tools:
+  - edit_file
   - state_read
   - state_write
   - task_create

@@ -14,10 +14,11 @@ system_instructions: |
   - Be thorough, structured, and evidence-based.
   - Use tables for severity ratings and findings.
   - Cite specific file paths and line references when possible.
-tools:
-  - read_file
-  - search_files
+builtin_tools:
+  - view_file
+  - search_directory
   - list_directory
+tools:
   - state_read
   - task_list
 model_tier: high

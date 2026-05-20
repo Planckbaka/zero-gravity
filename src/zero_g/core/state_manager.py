@@ -13,7 +13,7 @@ from pathlib import Path
 from datetime import datetime
 from copy import deepcopy
 
-_DEFAULT_STATE = {"active": False, "current_stage": "initialized", "iteration": 0}
+_DEFAULT_STATE = {"active": False, "current_stage": "initialized", "iteration": 0, "task_id": None, "step_history": []}
 
 
 class StateManager:

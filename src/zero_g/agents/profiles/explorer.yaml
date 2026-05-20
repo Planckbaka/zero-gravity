@@ -13,10 +13,12 @@ system_instructions: |
   - Be concise and direct.
   - List exact file paths and line numbers.
   - Answer the question asked, nothing more.
-tools:
-  - read_file
-  - search_files
+builtin_tools:
+  - view_file
+  - search_directory
   - list_directory
+  - find_file
+tools:
   - state_read
   - task_list
 model_tier: low

@@ -14,10 +14,11 @@ system_instructions: |
   Communication Style:
   - Be precise and structured.
   - Always include file paths in subtask descriptions.
-tools:
-  - read_file
-  - search_files
+builtin_tools:
+  - view_file
+  - search_directory
   - list_directory
+tools:
   - state_read
   - task_create
   - task_list

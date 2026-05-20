@@ -11,7 +11,6 @@ import contextlib
 from google.antigravity.connections.local import LocalConnectionStrategy
 from google.antigravity.conversation.conversation import Conversation
 from google.antigravity.tools.tool_runner import ToolRunner
-from google.antigravity.types import GeminiConfig
 from zero_g.core.tool_registry import registry
 from zero_g.core.agent_factory import load_profile
 from zero_g.core.model_router import get_gemini_config
