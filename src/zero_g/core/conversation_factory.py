@@ -14,24 +14,28 @@ from google.antigravity.tools.tool_runner import ToolRunner
 from google.antigravity.types import GeminiConfig
 from zero_g.core.tool_registry import registry
 from zero_g.core.agent_factory import load_profile
+from zero_g.core.model_router import get_gemini_config
 
 
 def create_conversation(
     profile: str,
     extra_tools: list | None = None,
     model_name: str | None = None,
+    tier: str | None = None,
 ) -> contextlib.AbstractAsyncContextManager[Conversation]:
     """Create an L2 Conversation instance for multi-stage skills.
 
     Args:
         profile: Agent profile name (maps to profiles/{name}.yaml).
         extra_tools: Additional callable tools beyond profile defaults.
-        model_name: Optional Gemini model name (e.g. "gemini-2.5-pro").
+        model_name: Optional explicit Gemini model name (overrides profile tier).
+        tier: Optional model tier ("high", "medium", "low").
 
     Returns:
         An async context manager yielding a Conversation instance.
     """
     config = load_profile(profile)
+    profile_tier = config.get("model_tier")
 
     # Resolve tool names to callables
     profile_tool_names = config.get("tools", [])
@@ -44,13 +48,12 @@ def create_conversation(
     for tool in resolved_tools:
         tool_runner.register(tool)
 
-    # Configure Gemini model selection
-    gemini_config = GeminiConfig()
-    if model_name:
-        from google.antigravity.types import ModelConfig, ModelEntry
-        gemini_config = GeminiConfig(
-            models=ModelConfig(default=ModelEntry(name=model_name))
-        )
+    # Configure Gemini model selection via model_router
+    gemini_config = get_gemini_config(
+        agent_role=profile if not model_name and not tier else None,
+        tier=tier or profile_tier,
+        model_name=model_name,
+    )
 
     # Build connection strategy with system instructions and tools
     strategy = LocalConnectionStrategy(

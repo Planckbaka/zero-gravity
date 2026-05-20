@@ -26,3 +26,4 @@ tools:
   - task_create
   - task_update
   - task_list
+model_tier: medium

@@ -21,3 +21,4 @@ tools:
   - state_read
   - task_create
   - task_list
+model_tier: high

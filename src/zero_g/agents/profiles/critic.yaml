@@ -20,3 +20,4 @@ tools:
   - list_directory
   - state_read
   - task_list
+model_tier: high

@@ -37,7 +37,7 @@ def init_registry():
     from zero_g.agents._builtin_tools import (
         read_file, write_file, edit_file, run_command, search_files, list_directory,
     )
-    from zero_g.tools import state_tools, task_tools
+    from zero_g.tools import state_tools, task_tools, notepad_tools
 
     # Builtin workspace utilities
     for func in [read_file, write_file, edit_file, run_command, search_files, list_directory]:
@@ -50,5 +50,11 @@ def init_registry():
 
     # Task tools
     for func in [task_tools.task_create, task_tools.task_update, task_tools.task_list]:
+        registry.register(func.__name__, func)
+
+    # Notepad tools
+    for func in [notepad_tools.notepad_read, notepad_tools.notepad_write_priority,
+                 notepad_tools.notepad_write_working, notepad_tools.notepad_write_manual,
+                 notepad_tools.notepad_prune, notepad_tools.notepad_stats]:
         registry.register(func.__name__, func)
 
