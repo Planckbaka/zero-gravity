@@ -1,0 +1,9 @@
+{
+  "name": "zero-gravity",
+  "version": "0.1.0",
+  "description": "Multi-agent orchestration plugin for Antigravity, modeled after Oh My Claude Code (OMC).",
+  "author": {
+    "name": "akiwayne"
+  },
+  "license": "MIT"
+}

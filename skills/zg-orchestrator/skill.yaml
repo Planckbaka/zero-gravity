@@ -1,0 +1,14 @@
+name: zg-orchestrator
+description: Teaches the main agent how to orchestrate the Architect, Executor, and Tester subagents to complete complex tasks following the Oh My Claude Code (OMC) blueprint.
+triggers:
+  - "zg-orchestrator"
+  - "orchestrate"
+agent_profile: architect
+api_layer: L1
+steps:
+  - "Read state and task status"
+  - "Architect drafts implementation plan"
+  - "Await user confirmation of plan"
+  - "Executor implements code changes"
+  - "Tester validates and compiles walkthrough"
+max_iterations: 1

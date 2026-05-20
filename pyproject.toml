@@ -1,0 +1,10 @@
+[project]
+name = "zero-gravity"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "google-antigravity>=0.1.0",
+    "pyyaml>=6.0.3",
+]
